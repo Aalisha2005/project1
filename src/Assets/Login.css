@@ -1,0 +1,98 @@
+.log {
+  font-family: Arial, sans-serif;
+  background-image: url(../Assets/loginpost.jpg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.login-container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 650px;
+  width:400px;
+  
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-left: 15px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color:#5a52d1;
+  margin-bottom: 20px;
+}
+
+.form-options input {
+  margin-right: 5px;
+}
+
+.form-options label {
+  margin: 0;
+}
+
+.forgot-password {
+  color: #6c63ff;
+  text-decoration: none;
+  margin-left: 50px;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.login-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #6c63ff;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.login-button:hover {
+  background-color: #5a52d1;
+}
+
+.signup-link {
+  text-align: center;
+  color: #6c63ff;
+  margin-top: 20px;
+}
+
+.signup-link a {
+  color: #6c63ff;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}

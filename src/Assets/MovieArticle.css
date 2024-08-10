@@ -1,0 +1,49 @@
+/* src/Components/MovieArticle.css */
+.movie-article {
+    background-color: #121212;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 20px auto;
+  }
+  
+  .movie-title {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .movie-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .movie-details {
+    font-size: 18px;
+  }
+  
+  .movie-tags {
+    margin-top: 20px;
+  }
+  
+  .tag {
+    display: inline-block;
+    background-color: #ff0000;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 5px;
+  }
+  
+  .sci-fi {
+    background-color: #2e8b57;
+  }
+  
+  .action {
+    background-color: #ff4500;
+  }
+  
+  /* Add more tag colors as needed */
+  

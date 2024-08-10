@@ -1,0 +1,33 @@
+.review {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .review img {
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+  
+  .review-content {
+    flex: 1;
+  }
+  
+  .review-footer {
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #aaa;
+  }
+  
+  .review-footer .MuiSvgIcon-root { /* Specific style for Material-UI icons */
+    margin-right: 1px; /* Space between the icon and the likes count */
+    size: 10px;
+  }
+  
+  .review-footer span {
+     /* Adjust as needed for spacing */
+  }
+  

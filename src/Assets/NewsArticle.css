@@ -1,0 +1,72 @@
+/* src/components/NewArticle.css */
+.container1 {
+  display: flex;
+  padding: 20px;
+  background-color: black;
+  color: white; /* Ensure text is visible on the black background */
+}
+body{
+  background-color: black;
+}
+.articles {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.article {
+  display: flex;
+  gap: 20px;
+  border-bottom: 2px solid rgb(89, 81, 81);
+  padding-bottom: 20px;
+}
+
+.image-placeholder {
+  width: 200px;
+  height: 200px;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+}
+
+.image-placeholder img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain; /* Ensure the image fits the placeholder without distortion */
+}
+
+.article-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.article-content h2 {
+  font-size: 1.2em;
+  color: white;
+  margin: 0;
+}
+
+.article-content p {
+  font-size: 0.9em;
+  color: gray;
+  margin: 5px 0 0;
+}
+
+.side-news {
+  flex: 1;
+  padding-left: 20px;
+  border-left: 1px solid #ccc;
+}
+
+.news-item {
+  margin-bottom: 15px;
+  font-size: 0.9em;
+}
+
+.read-more {
+  font-weight: bold;
+  color: #007bff;
+  cursor: pointer;
+}
