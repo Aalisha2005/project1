@@ -292,15 +292,122 @@
 // };
 
 // export default TopRated;
+// import React, { useEffect, useState } from 'react';
+// import Slider from 'react-slick';
+// import '../Assets/MovieGrid.css';
+// import Upcoming from './Upcoming';
+// import Popularseries from './Popularseries';
+// import MovieList from './MovieList';
+
+// const MovieCard = ({ movie }) => (
+//   <div className="movie-card1">
+//     <img src={movie.poster} alt={movie.title} />
+//   </div>
+// );
+
+// const TopRated = () => {
+//   const [movies, setMovies] = useState([]);
+//   const [loading, setLoading] = useState(true);
+//   const [error, setError] = useState(null);
+
+//   useEffect(() => {
+//     fetchMovies();
+//   }, []);
+
+//   const fetchMovies = async () => {
+//     const url = 'https://imdb-top-100-movies.p.rapidapi.com/';
+//     const options = {
+//       method: 'GET',
+//       headers: {
+//         'x-rapidapi-key': '546f19c008mshefb2f76761bd2bap1d038fjsnb4b221542c1b',
+//         'x-rapidapi-host': 'imdb-top-100-movies.p.rapidapi.com'
+//       }
+//     };
+
+//     try {
+//       const response = await fetch(url, options);
+//       if (!response.ok) {
+//         throw new Error(`HTTP error! status: ${response.status}`);
+//       }
+//       const data = await response.json();
+//       setMovies(data || []);
+//     } catch (error) {
+//       setError(`Failed to fetch movies: ${error.message}`);
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
+
+//   const settings = {
+//     infinite: true,
+//     speed: 300,
+//     slidesToShow: 5,
+//     slidesToScroll: 1,
+//     arrows: true,
+//     autoplay: true,
+//     autoplaySpeed: 2000,
+//     responsive: [
+//       {
+//         breakpoint: 1024,
+//         settings: {
+//           slidesToShow: 4,
+//           slidesToScroll: 1,
+//         },
+//       },
+//       {
+//         breakpoint: 768,
+//         settings: {
+//           slidesToShow: 3,
+//           slidesToScroll: 1,
+//         },
+//       },
+//       {
+//         breakpoint: 480,
+//         settings: {
+//           slidesToShow: 2,
+//           slidesToScroll: 1,
+//         },
+//       },
+//     ],
+//   };
+
+//   return (
+//     <div className="bodycar">
+//       <div className="movie-slider-container">
+//         <h3 className="page-title">Top Rated</h3>
+//         {loading && <p>Loading...</p>}
+//         {error && <p>Error: {error}</p>}
+//         <div className="movie-slider">
+//           <Slider {...settings}>
+//             {movies.map((movie) => (
+//               <MovieCard
+//                 key={movie.id}
+//                 movie={{ 
+//                   title: movie.title, 
+//                   poster: movie.image 
+//                 }}
+//               />
+//             ))}
+//           </Slider>
+//         </div>
+//       </div>
+//       <Popularseries />
+//      <MovieList/>
+//       {/* <Upcoming /> */}
+//     </div>
+//   );
+// };
+
+// export default TopRated;
 import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import '../Assets/MovieGrid.css';
-import Upcoming from './Upcoming';
+import MovieDetailsModal from './MovieDetailsModal';
 import Popularseries from './Popularseries';
 import MovieList from './MovieList';
 
-const MovieCard = ({ movie }) => (
-  <div className="movie-card1">
+const MovieCard = ({ movie, onClick }) => (
+  <div className="movie-card1" onClick={() => onClick(movie)} style={{ cursor: 'pointer' }}>
     <img src={movie.poster} alt={movie.title} />
   </div>
 );
@@ -309,6 +416,7 @@ const TopRated = () => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   useEffect(() => {
     fetchMovies();
@@ -336,6 +444,14 @@ const TopRated = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleMovieClick = (movie) => {
+    setSelectedMovie(movie);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedMovie(null);
   };
 
   const settings = {
@@ -383,17 +499,25 @@ const TopRated = () => {
               <MovieCard
                 key={movie.id}
                 movie={{ 
+                  id: movie.id, 
                   title: movie.title, 
-                  poster: movie.image 
+                  poster: movie.image, 
+                  rating: movie.rating 
                 }}
+                onClick={handleMovieClick} // Ensure onClick is passed
               />
             ))}
           </Slider>
         </div>
       </div>
-      {/* <Popularseries /> */}
-     <MovieList/>
-      <Upcoming />
+      <Popularseries />
+      <MovieList />
+      {selectedMovie && (
+        <MovieDetailsModal 
+          movie={selectedMovie} 
+          onClose={handleCloseModal} 
+        />
+      )}
     </div>
   );
 };

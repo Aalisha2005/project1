@@ -36,6 +36,9 @@ iframe {
     z-index: 5;
 } */
 /* src/MovieTrailerSlider.css */
+body{
+    background-color: black;
+}
 .slider {
     position: relative;
     overflow: hidden;

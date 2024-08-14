@@ -1,72 +1,61 @@
-/* src/components/NewArticle.css */
-.container1 {
+    .container1 {
+    background-color: black;
+    width: 100%;
+    max-width: 2500px;
+    margin: 0px auto;
+  }
+ .cont{
+margin-bottom: 100px;
+}
+  .news-section {
+    
   display: flex;
-  padding: 20px;
-  background-color: black;
-  color: white; /* Ensure text is visible on the black background */
-}
-body{
-  background-color: black;
-}
-.articles {
-  flex: 3;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  padding: 10px; 
+  border-bottom: 1px solid lightgray;
+ 
+  width: 1200px;
 }
 
-.article {
-  display: flex;
-  gap: 20px;
-  border-bottom: 2px solid rgb(89, 81, 81);
-  padding-bottom: 20px;
-}
-
-.image-placeholder {
-  width: 200px;
-  height: 200px;
-  display: flex; 
-  align-items: center;
-  justify-content: center;
-}
-
-.image-placeholder img {
-  height: 100%;
-  width: 100%;
-  object-fit: contain; /* Ensure the image fits the placeholder without distortion */
-}
-
-.article-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.article-content h2 {
-  font-size: 1.2em;
-  color: white;
-  margin: 0;
-}
-
-.article-content p {
-  font-size: 0.9em;
-  color: gray;
-  margin: 5px 0 0;
-}
-
-.side-news {
+.news-section article {
   flex: 1;
-  padding-left: 20px;
-  border-left: 1px solid #ccc;
+  margin-right: 18px;
 }
 
-.news-item {
-  margin-bottom: 15px;
-  font-size: 0.9em;
+.news-section h2 {
+  font-size: 24px;
+  margin: 0 0 100px 0;
+  text-align:initial;
 }
 
-.read-more {
-  font-weight: bold;
-  color: #007bff;
-  cursor: pointer;
+.news-section p {
+  color: #666;
+  margin:0 0 100px;
 }
+
+.main-image {
+  height:230px;
+  width: 300px;
+  margin: 0;
+  left: 0;
+  margin-top: 15px;
+
+}
+
+.news-section article {
+  flex: 1;
+  margin-right: 18px;
+  height: 200px; 
+  overflow: hidden; 
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+ 
+}
+
+.news-section h2 {
+  font-size: 24px;
+  margin: 0 0 10px 0;
+  flex: 0 0 auto; 
+}
+
+  

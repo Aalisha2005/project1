@@ -24,7 +24,7 @@ function App() {
             <Route exact path="/Login" element={<Login/>} />
             <Route path="/Signup" element={<Signup/>} />
             <Route path='/Movies' element={<TopRated/>}/>
-            <Route path="/selected" element={<SelectedMovies/>} />
+            <Route path="/lists" element={<SelectedMovies/>} />
             <Route path="/screen" element={<ScreenplayPage/>} />
             <Route path='/Journal' element={<NewArticle/>}/>
             </Routes>

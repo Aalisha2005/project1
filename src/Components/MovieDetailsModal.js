@@ -50,80 +50,230 @@
 //     </div>
 //   );
 // };
-import React, { useState, useEffect, useCallback } from 'react';
+// src/components/MovieDetailsModal.js
+// MovieDetailsModal.js
+// import React, { useState } from 'react';
+// import '../Assets/MovieDetailsModal.css';
+
+// const MovieDetailsModal = ({ movie, onClose }) => {
+//   const [review, setReview] = useState('');
+
+//   const handleReviewChange = (event) => {
+//     setReview(event.target.value);
+//   };
+
+//   const handleSubmitReview = () => {
+//     // Handle review submission logic here
+//     console.log('User review:', review);
+//   };
+
+//   if (!movie) return null;
+
+//   return (
+//     <div className="modal-overlay">
+//       <div className="modal-content">
+//         <button className="close-btn" onClick={onClose}>×</button>
+//         <h2 className="movie-title">{movie.title}</h2>
+//         <p className="movie-rating">⭐ Rating: {movie.rating || 'N/A'}</p>
+//         <textarea
+//           className="review-textarea"
+//           placeholder="Write your review here..."
+//           value={review}
+//           onChange={handleReviewChange}
+//         />
+//         <button className="submit-review-btn" onClick={handleSubmitReview}>Submit Review</button>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default MovieDetailsModal;
+// import React, { useState } from 'react';
+// import '../Assets/MovieDetailsModal.css';
+
+// const MovieDetailsModal = ({ movie, onClose }) => {
+//   const [review, setReview] = useState('');
+
+//   const handleReviewChange = (event) => {
+//     setReview(event.target.value);
+//   };
+
+//   const handleSubmitReview = () => {
+//     // Handle review submission logic here
+//     console.log('User review:', review);
+//     // Trigger the alert on successful review submission
+//     window.alert('Review submitted successfully');
+//     // You may want to add logic to send the review to a server here
+//   };
+
+//   if (!movie) return null;
+
+//   return (
+//     <div className="modal-overlay">
+//       <div className="modal-content">
+//         <button className="close-btn" onClick={onClose}>×</button>
+//         <h2 className="movie-title">{movie.title}</h2>
+//         <p className="movie-rating">⭐ Rating: {movie.rating || 'N/A'}</p>
+//         <textarea
+//           className="review-textarea"
+//           placeholder="Write your review here..."
+//           value={review}
+//           onChange={handleReviewChange}
+//         />
+//         <button className="submit-review-btn" onClick={handleSubmitReview}>Submit Review</button>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default MovieDetailsModal;
+// import React, { useState } from 'react';
+// import axios from 'axios';
+// import '../Assets/MovieDetailsModal.css';
+
+// const MovieDetailsModal = ({ movie, onClose }) => {
+//   const [review, setReview] = useState('');
+
+//   const handleReviewChange = (event) => {
+//     setReview(event.target.value);
+//   };
+
+//   const handleSubmitReview = async () => {
+//     const userId = localStorage.getItem('userId');
+
+//     if (!userId) {
+//       alert('You need to log in to submit a review');
+//       return;
+//     }
+
+//     const reviewData = {
+//       userId: userId,
+//       movieId: movie.id,
+//       reviewText: review,
+//     };
+
+//     console.log('Review Data:', reviewData); // Log the review data to inspect it
+
+//     try {
+//       const response = await axios.post('http://localhost:9001/api/reviews', reviewData);
+
+//       if (response.status === 200) {
+//         alert('Review submitted successfully');
+//         onClose(); 
+//       } else {
+//         alert('Failed to submit review, please try again.');
+//       }
+//     } catch (error) {
+//       console.error('Error submitting review:', error.response?.data);
+//       alert(`Failed to submit review: ${error.response?.data?.message || 'Please try again.'}`);
+//     }
+//   };
+
+//   if (!movie) return null;
+
+//   return (
+//     <div className="modal-overlay">
+//       <div className="modal-content">
+//         <button className="close-btn" onClick={onClose}>×</button>
+//         <h2 className="movie-title">{movie.title}</h2>
+//         <p className="movie-rating">⭐ Rating: {movie.rating || 'N/A'}</p>
+//         <textarea
+//           className="review-textarea"
+//           placeholder="Write your review here..."
+//           value={review}
+//           onChange={handleReviewChange}
+//         />
+//         <button className="submit-review-btn" onClick={handleSubmitReview}>Submit Review</button>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default MovieDetailsModal;
+import React, { useState } from 'react';
 import axios from 'axios';
 import '../Assets/MovieDetailsModal.css';
 
 const MovieDetailsModal = ({ movie, onClose }) => {
-  const [cast, setCast] = useState([]);
-  const [reviews, setReviews] = useState('');
-
-  // Fetching the top cast for the selected movie
-  const fetchCast = useCallback(async () => {
-    const url = `https://imdb-movies-web-series-etc-search.p.rapidapi.com/title/get-top-cast?tconst=${movie.id}`;
-    const options = {
-      method: 'GET',
-      headers: {
-        'x-rapidapi-key': '546f19c008mshefb2f76761bd2bap1d038fjsnb4b221542c1b',
-        'x-rapidapi-host': 'imdb-movies-web-series-etc-search.p.rapidapi.com'
-      }
-    };
-
-    try {
-      const response = await axios.get(url, options);
-      setCast(response.data.slice(0, 5)); // Get top 5 cast members
-    } catch (error) {
-      console.error('Error fetching cast:', error);
-    }
-  }, [movie.id]);
-
-  useEffect(() => {
-    fetchCast();
-  }, [fetchCast]);
+  const [review, setReview] = useState('');
+  const [reviews, setReviews] = useState([]); // To store fetched reviews
+  const [showReviews, setShowReviews] = useState(false); // To toggle reviews visibility
 
   const handleReviewChange = (event) => {
-    setReviews(event.target.value);
+    setReview(event.target.value);
   };
 
   const handleSubmitReview = async () => {
-    try {
-      const review = {
-        userId: 1, // Replace with the actual user ID
-        movieId: movie.id,
-        reviewText: reviews
-      };
+    const userId = localStorage.getItem('userId');
 
-      await axios.post('http://localhost:9001/reviews/add', review);
-      alert('Review submitted successfully');
-      setReviews('');
+    if (!userId) {
+      alert('You need to log in to submit a review');
+      return;
+    }
+
+    const reviewData = {
+      userId: userId,
+      movieId: movie.id,
+      reviewText: review,
+    };
+
+    console.log('Review Data:', reviewData);
+
+    try {
+      const response = await axios.post('http://localhost:9001/api/reviews', reviewData);
+
+      if (response.status === 200) {
+        alert('Review submitted successfully');
+        setReviews([...reviews, reviewData]); // Update reviews list with the new review
+        setReview(''); // Clear the review textarea
+      } else {
+        alert('Failed to submit review, please try again.');
+      }
     } catch (error) {
-      console.error('Error submitting review:', error);
-      alert('Error submitting review');
+      console.error('Error submitting review:', error.response?.data);
+      alert(`Failed to submit review: ${error.response?.data?.message || 'Please try again.'}`);
     }
   };
 
+  const toggleReviewsVisibility = () => {
+    setShowReviews(!showReviews);
+  };
+
+  if (!movie) return null;
+
   return (
-    <div className="modal">
+    <div className="modal-overlay">
       <div className="modal-content">
-        <span className="close" onClick={onClose}>&times;</span>
-        <h2>{movie.title}</h2>
-        <img src={movie.image} alt={movie.title} className="movie-poster" />
-        <p>Release Date: {movie.releaseDate}</p>
-        <p>Rating: {movie.vote_average}</p>
-        <p>{movie.overview}</p>
-        <div className="cast-list">
-          <h3>Top Cast</h3>
-          <ul>
-            {cast.map((member, index) => (
-              <li key={index}>{member.name} as {member.character}</li>
-            ))}
-          </ul>
-        </div>
-        <div className="review-section">
-          <h3>Submit a Review</h3>
-          <textarea value={reviews} onChange={handleReviewChange} />
-          <button onClick={handleSubmitReview}>Submit</button>
-        </div>
+        <button className="close-btn" onClick={onClose}>×</button>
+        <h2 className="movie-title">{movie.title}</h2>
+        <p className="movie-rating">⭐ Rating: {movie.rating || 'N/A'}</p>
+
+        <textarea
+          className="review-textarea"
+          placeholder="Write your review here..."
+          value={review}
+          onChange={handleReviewChange}
+        />
+        <button className="submit-review-btn" onClick={handleSubmitReview}>Submit Review</button>
+
+        <button className="toggle-reviews-btn" onClick={toggleReviewsVisibility}>
+          {showReviews ? 'Hide Reviews' : 'Show Reviews'}
+        </button>
+
+        {showReviews && (
+          <div className="reviews-section">
+            {reviews.length > 0 ? (
+              reviews.map((rev, index) => (
+                <div key={index} className="user-review">
+                  {/* <p><strong>User:</strong> {rev.userId}</p> */}
+                  <p><strong>Review:</strong> {rev.reviewText}</p>
+                </div>
+              ))
+            ) : (
+              <p>No reviews yet. Be the first to review!</p>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -1,47 +1,79 @@
 .screenplay-container {
   width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 1000px;
+  margin: 50px auto;
   padding: 20px;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+  color: #f5f5f5;
 }
 
 .screenplay-container h2 {
   text-align: center;
   margin-bottom: 20px;
+  color: #ff5555;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .screenplay-container textarea {
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  width: 90%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #333;
   margin-bottom: 20px;
+  background-color: #333;
+  color: #f5f5f5;
+  font-size: 16px;
+  box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.3s ease;
+}
+
+.screenplay-container textarea:focus {
+  border-color: #ff5555;
+  outline: none;
 }
 
 .movies-container {
   margin-top: 30px;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 24px;
   justify-content: center;
 }
 
 .movie-card {
-  width: 200px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  width: 220px;
+  border: none;
+  border-radius: 12px;
   overflow: hidden;
   text-align: center;
-  background-color: #f5f5f5;
+  background-color: #262626;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.7);
+  transition: transform 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-10px);
 }
 
 .movie-card img {
   width: 100%;
-  height: 300px;
+  height: 320px;
   object-fit: cover;
+  border-bottom: 1px solid #444;
 }
 
 .movie-card h3 {
-  margin: 10px 0;
-  font-size: 18px;
+  margin: 15px 0 10px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #ff5555;
+}
+
+.movie-card p {
+  padding: 0 15px 15px;
+  font-size: 14px;
+  color: #ccc;
 }

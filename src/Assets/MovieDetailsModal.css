@@ -67,69 +67,191 @@
     background-color: #5a52d1;
   }
    */
-   .modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  
-  .modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
-    border-radius: 8px;
-    position: relative;
-  }
-  
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  .review-section {
-    margin-top: 20px;
-  }
-  
-  .review-section textarea {
-    width: 90%;
-    height: 100px;
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  .review-section button {
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .review-section button:hover {
-    background-color: #218838;
-  }
-  
+   /* src/components/MovieDetailsModal.css */
+/* MovieDetailsModal.css */
+/* MovieCard CSS */
+/* .movie-card1 {
+  cursor: pointer; /* Ensure cursor indicates clickable */
+  /* Other styling properties */
+
+
+
+/* .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  width: 80%;
+  max-width: 600px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.movie-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.movie-poster {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.movie-rating {
+  margin-bottom: 10px;
+}
+
+.review-textarea {
+  width: 90%;
+  height: 100px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.submit-review-btn {
+  padding: 10px 20px;
+  border: none;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.toggle-reviews-btn {
+  margin-top: 10px;
+  margin-left: 50px;
+  padding: 10px 20px;
+  border: none;
+  background: #28a745;
+  color: white;
+  cursor: pointer;
+}
+
+.reviews-section {
+  margin-top: 20px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+
+.user-review {
+  margin-bottom: 10px;
+}  */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  width: 80%;
+  max-width: 600px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.movie-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.movie-rating {
+  margin-bottom: 10px;
+}
+
+.review-textarea {
+  width: 90%;
+  height: 100px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.submit-review-btn {
+  padding: 10px 20px;
+  border: none;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.toggle-reviews-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  background: #28a745;
+  color: white;
+  cursor: pointer;
+}
+
+.reviews-section {
+  margin-top: 20px;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+  margin-left: 500px;
+}
+
+.user-review {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.user-icon {
+  margin-right: 10px;
+  font-size: 20px;
+  color: #007bff;
+}
+
+.like-btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  margin-left: auto; /* Pushes the like button to the right */
+}
+
+.like-btn:hover {
+  color: #0056b3;
+}
